@@ -13,5 +13,53 @@
   <a href="homepages/bugge.html">Bugge sin hjemmeside klikk her! </a>
   <a href="homepages/saeralpakka.html"><img src="images/saeralpakka.jpg" style="height: 5%;width: 5%;" /></a>
   Alpakker er mye bedre enn lamaer, for lamaer er lame...
+  <h2> LOOK AT THIS GRAPH </h2>
+
+  <canvas id="canvas" widht="300" height="300">nettlesern din er gammal:(</canvas>
+  <script>
+    const canvas = document.querySelector('canvas');
+    const ctx = canvas.getContext('2d');
+
+    values = []
+    maxNumValues = 10;
+    len = Math.ceil(Math.random()*maxNumValues)
+    for(let i = 0; i < len; i++) {
+	values.push(Math.floor(Math.random()*300));
+    }
+    
+    // The graph
+    ctx.fillStyle = 'green';
+    ctx.beginPath();
+
+    ctx.moveTo(0, 300);
+    numVals = values.length;
+    spacing = Math.ceil(300/numVals)
+    for(let i = 0; i < values.length; i++){
+	ctx.lineTo(i*spacing, 300-values[i]);
+    }
+	
+    ctx.lineTo(300, 300);
+    ctx.fill();
+    ctx.closePath();
+
+
+    // The edge
+    ctx.fillStyle='black';
+    ctx.beginPath();
+    ctx.lineTo(0,0);
+    ctx.lineTo(0,300);
+    ctx.stroke();
+    ctx.closePath();
+    
+    for(let i = 0; i < 300; i=i+30){
+	ctx.beginPath();
+	ctx.moveTo(0,i);
+	ctx.lineTo(20,i);
+	ctx.stroke();
+	ctx.closePath();
+	labelIndex = 300-i
+	ctx.fillText(labelIndex.toString(), 20, i);
+    }
+  </script>
 </body>
 
