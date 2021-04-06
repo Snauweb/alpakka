@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Øving 5</title>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script src="pytagoras.js"></script>
+</head>
+<body>
+<canvas id="canvas" height="540em" width="960em">Ingen canvas her</canvas>
+<form>
+    <label for="k1" id="lblk1">K1: </label>
+    <div>
+        <input type="range" min="0" max="100" step="1" oninput="setK1()" id="k1" value="30"/>
+    </div>
+    <label for="k2" id="lblk2">K2: </label>
+    <div>
+        <input type="range" min="0" max="100" step="1" oninput="setK2()" id="k2" value="40"/>
+    </div>
+    <label for="scale" id="lblScale">Scale: </label>
+    <div>
+        <input type="range" min="0" max="10" step="0.1" oninput="setScale()" id="scale" value="2"/>
+    </div>
+    <label id="lblHyp">Hypotenus: </label>
+    <a href="../index.html">Til startsiden</a>
+</form>
+</body>
+</html>
