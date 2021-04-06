@@ -1,21 +1,43 @@
 <!DOCTYPE html>
+
 <head>
     <title>AAAAAAAAAAAAAA</title>
     <script>
         let rotation = 0;
         let onLoaded = () => {
             setInterval(() => {
-                document.getElementById("img1").style.transform = `rotate(${rotation++}deg)`;
-                rotation %= 360;
+                if (document.getElementById("autospin").checked) {
+                    setRotation(rotation++);
+                    rotation %= 360;
+                }
             }, 1);
         }
 
-        window.onload=onLoaded;
+        let setRotation = (r) => {
+            document.getElementById("lblRotation").innerHTML = `Rotation: ${r}`;
+            document.getElementById("img1").style.transform = `rotate(${r}deg)`;
+            document.getElementById("rotation").value = rotation;
+        }
+
+        let handleAutospinCheck = () => {
+            document.getElementById("rotation").disabled = document.getElementById("autospin").checked;
+        }
+
+        let handleRotationInput = () => {
+            rotation = parseInt(document.getElementById("rotation").value) % 360;
+            setRotation(rotation);
+        }
+
+        window.onload = onLoaded;
     </script>
 </head>
 
 <body onlead>
-    <img src="../images/saeralpakka.jpg" style="width:10%; height:10%" id="img1"/>
+    <img src="../images/saeralpakka.jpg" style="width:10%; height:10%" id="img1" />
+    <input type="checkbox" id="autospin" name="autospin" checked onclick="handleAutospinCheck()" />
+    <label for="autospin">Autospin</label>
+    <input type="range" default=0 min=0 max=359 id="rotation" name="rotation" disabled oninput="handleRotationInput()" />
+    <label for="rotation" id="lblRotation">Rotation: 0</label>
     <p>
         Dette er en sær alpakka. Den burde kanskje <i>slettes</i>
     </p>
