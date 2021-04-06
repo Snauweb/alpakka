@@ -15,7 +15,76 @@
   <a href="homepages/bugge.html">Bugge sin hjemmeside klikk her! </a>
   <a href="homepages/saeralpakka.html"><img src="images/saeralpakka.jpg" style="height: 5%;width: 5%;" /></a>
   Alpakker er mye bedre enn lamaer, for lamaer er lame...
+  <h2> LOOK AT THIS GRAPH </h2>
+  
+  <canvas id="canvas" width="350" height="300">nettlesern din er gammal:(</canvas>
+  <script>
+    const canvas = document.querySelector('canvas');
+    const ctx = canvas.getContext('2d');
 
+    values = []
+    maxNumValues = 10;
+    len = Math.ceil(Math.random()*maxNumValues)
+    for(let i = 0; i < len; i++) {
+	values.push(Math.floor(Math.random()*300));
+    }
+    
+    // The graph
+    ctx.fillStyle = 'green';
+    ctx.beginPath();
+
+    ctx.moveTo(0, 300);
+    numVals = values.length;
+    spacing = Math.ceil(300/numVals)
+    for(let i = 0; i < numVals; i++){
+	ctx.lineTo(i*spacing, 300-values[i]);
+    }
+	
+    ctx.lineTo(300, 300);
+    ctx.fill();
+    ctx.closePath();
+
+
+    // Y axis
+    ctx.fillStyle='black';
+    ctx.beginPath();
+    ctx.lineTo(0,0);
+    ctx.lineTo(0,300);
+    ctx.stroke();
+    ctx.closePath();
+    
+    for(let i = 0; i < 300; i=i+30){
+	ctx.fillText("Ull (kg)", 20, 20);
+	ctx.beginPath();
+	ctx.moveTo(0,i);
+	ctx.lineTo(20,i);
+	ctx.stroke();
+	ctx.closePath();
+	labelIndex = 300-i
+	ctx.fillText(labelIndex.toString(), 20, i);
+    }
+
+    // X axis
+    ctx.fillStyle='black';
+    ctx.beginPath();
+    ctx.lineTo(0,298);
+    ctx.lineTo(300, 298);
+    ctx.stroke();
+    ctx.closePath();
+    
+    //
+    for(let i = 0; i < numVals; i++){
+	ctx.fillText("Kroppsvekt (kg)", 250, 280);
+	ctx.beginPath();
+	ctx.moveTo(i*spacing, 300);
+	ctx.lineTo(i*spacing, 280);
+	ctx.stroke();
+	ctx.closePath();
+	labelIndex = i*spacing;
+	ctx.fillText(labelIndex.toString(), i*spacing, 260);
+    }
+  </script>
+  
   <br>
   <br>
   <a href=https://www.google.com/search?q=meme+page+alpakka&sxsrf=ALeKk00FOuRBwDwmNJ-J5UhVV--jfjesCw:1617739014632&source=lnms&tbm=isch&sa=X&ved=2ahUKEwjNnbm6s-rvAhVEs4sKHTZJBecQ_AUoAXoECAEQAw&biw=1337&bih=853>
@@ -24,7 +93,7 @@
   <br>
   <br>
   <a href=https://external-preview.redd.it/k6Yft3AbyueRxbsvvLicnItoTEyW-V-8_1EayYTC778.jpg?auto=webp&s=432c02ade366e2d067a88760d06795235d9aa565>
-  pornhub</a>
+  lamahub</a>
   <br>
   <br>
 </body>
