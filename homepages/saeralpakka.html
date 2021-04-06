@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<head>
+    <title>AAAAAAAAAAAAAA</title>
+    <script>
+        let rotation = 0;
+        let onLoaded = () => {
+            setInterval(() => {
+                document.getElementById("img1").style.transform = `rotate(${rotation++}deg)`;
+                rotation %= 360;
+            }, 1);
+        }
+
+        window.onload=onLoaded;
+    </script>
+</head>
+
+<body onlead>
+    <img src="../images/saeralpakka.jpg" style="width:10%; height:10%" id="img1"/>
+    <p>
+        Dette er en sær alpakka. Den burde kanskje <i>slettes</i>
+    </p>
+</body>
